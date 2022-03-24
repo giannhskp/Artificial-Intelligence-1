@@ -26,4 +26,7 @@
   - Theoritical Exercises on Constraint Santisfaction Problems
 
 ## Project 4
+Exercises on:
+  - Propositional Logic
+  - First-order Logic
 
