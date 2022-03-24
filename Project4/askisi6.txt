@@ -1,0 +1,44 @@
+Gia askisi 3:
+__________________________________________________________
+
+Assumptions:
+
+MemberCorona(Kuriakos).
+MemberCorona(Alexis).
+MemberCorona(Fofi).
+(-MemberCorona(x)) | Right(x) | Liberal(x) .
+(-Right(x)) | (-Likes(x,Socialism)).
+Likes(x,Socialism) | (-Liberal(x)).
+(-Likes(Kuriakos,x)) | (-Likes(Alexis,x)).
+Likes(Alexis,x) | Likes(Kuriakos,x).
+Likes(Alexis,Capitalism).
+Likes(Alexis,Socialism).
+
+% vazoume mono mia apo tis 2 parakatw protaseis, analoga me to erotima pou theloume
+(-MemberCorona(y)) | (-Liberal(y)) | (Right(y)).    %gia erwthma b
+(-MemberCorona(y)) | (-Liberal(y)) | (Right(y)) # answer(y).      %gia erwthma g
+
+
+Goals:
+% empty
+
+
+
+
+Gia askisi 4:
+__________________________________________________________
+
+
+Assumptions:
+
+-In(x,y) | -In(x,z) | In(x,Intersection(y,z)).  
+-In(x,Intersection(y,z)) | In(x,y). 
+-In(x,Intersection(y,z)) | In(x,z). 
+In(f1(x,y),x) | SubsetOf(x,y). 
+-In(f1(x,y),y) | SubsetOf(x,y).  
+
+-SubsetOf(Intersection(c1,c2),c1). % goal (arnisi ths protasis C)
+
+
+Goals:
+% empty

@@ -1,0 +1,45 @@
+Askisi 8:
+__________________________________________________________
+
+Asumptions:
+
+Person(Donald).
+Person(Melania).
+Person(Ivanka).
+Person(Barron).
+Loves(Donald,Donald).
+Loves(Donald,Ivanka).
+Loves(Ivanka,Donald).
+Loves(Melania,Barron).
+Loves(Barron,Melania).
+
+%domain closure axiom
+all x (x=Donald | x=Melania | x=Ivanka | x=Barron ).
+
+% predicate completion
+all x ( (x!=Donald & x!=Ivanka) ->  -Loves(x,Donald)).
+all x ( (x!=Donald) ->  -Loves(x,Ivanka)).
+all x ( (x!=Melania) ->  -Loves(x,Barron)).
+all x ( (x!=Barron) ->  -Loves(x,Melania)).
+
+% unique names assumption (UNA)
+Donald!=Ivanka.
+Donald!=Melania.
+Donald!=Barron.
+Melania!=Ivanka.
+Melania!=Barron.
+Barron!=Ivanka.
+
+% thn parakatw protash thn vazoume sta assumptions mono gia na ektelesoume to erwtima d 
+-Loves(Donald,y) # answer(y).   % erwtima d
+
+
+Goals:   (epilegoume mono thn antistoixi protash tou erwtimatos pou theloume, gia to erwtima d afinoume ta Goals kena)
+
+exists x exists y (Person(x) & Person(y) & Loves(x,y) & Loves(y,x)). %erwthma c1
+exists x exists y (x!=y & Person(x) & Person(y) & Loves(x,y) & Loves(y,x)).  %erwthma c2
+-Loves(Melania,Donald).		%erwthma c3
+exists x (Person(x) & -Loves(x,Donald)).	%erwthma c4
+all x (Person(x) & exists y (Person(y) & x!=y & Loves(y,x))).  %erwthma c5
+all x (Person(x) & exists y (Person(y) & x!=y & -Loves(y,x))).  %erwthma c6
+exists x exists y exists z (Person(x) & Person(y) & Person(z) & Loves(x,y) & Loves(x,z) & y!=z). %erwthma c7

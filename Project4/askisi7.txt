@@ -1,0 +1,41 @@
+Askisi 7:
+__________________________________________________________
+
+Assumptions:
+
+subClassOf(Country,AdministrativeUnit).
+subClassOf(DecentralizedAdministration,AdministrativeUnit).
+subClassOf(Region,AdministrativeUnit).
+subClassOf(RegionalUnit,AdministrativeUnit).
+subClassOf(Municipality,AdministrativeUnit).
+subClassOf(MunicipalityUnit,AdministrativeUnit).
+subClassOf(MunicipalCommunity,AdministrativeUnit).
+subClassOf(LocalCommunity,AdministrativeUnit).
+
+belongsTo(DecentralizedAdministration,Country).
+belongsTo(Region,DecentralizedAdministration).
+belongsTo(RegionalUnit,Region).
+belongsTo(Municipality,RegionalUnit).
+belongsTo(MunicipalityUnit,Municipality).
+belongsTo(MunicipalCommunity,MunicipalityUnit).
+belongsTo(LocalCommunity,MunicipalityUnit).
+
+elementOf(AdministrativeUnit,Class).
+elementOf(Country,Class).
+elementOf(DecentralizedAdministration,Class).
+elementOf(Region,Class).
+elementOf(RegionalUnit,Class).
+elementOf(Municipality,Class).
+elementOf(MunicipalityUnit,Class).
+elementOf(MunicipalCommunity,Class).
+elementOf(LocalCommunity,Class).
+
+elementOf(MunicipalityOfAthens,Municipality).
+
+all x all y all z (subClassOf(x,y) & subClassOf(y,z)-> subClassOf(x,z)).
+all x all y all z (belongsTo(x,y) & belongsTo(y,z)-> belongsTo(x,z)).
+all x all y all z (elementOf(x,Class) & elementOf(y,Class) & elementOf(z,x) & subClassOf(x,y) -> elementOf(z,y)).
+
+Goal:
+
+elementOf(MunicipalityOfAthens, AdministrativeUnit).
